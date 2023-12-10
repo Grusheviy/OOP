@@ -52,13 +52,11 @@ public class Controller {
     }
 
     public StudyGroup createStudyGroup(String teacherFirstName, String teacherSecondName, String teacherLastName) {
-        // Получение преподавателя
+
         Teacher teacher = new Teacher(teacherFirstName, teacherSecondName, teacherLastName, service.getMaxId(Type.TEACHER));
 
-        // Используем ранее созданных студентов
         List<Student> students = new ArrayList<>(createdStudents);
 
-        // Формирование учебной группы
         return studyGroupService.createStudyGroup(teacher, students);
     }
 }
